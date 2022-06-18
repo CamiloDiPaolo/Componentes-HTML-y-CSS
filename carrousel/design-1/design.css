@@ -1,0 +1,26 @@
+.carrousel-item {
+  display: flex;
+  flex-direction: column;
+
+  background-color: #eee;
+}
+.carrousel-item img {
+  /* max-width: 100%; */
+  flex-grow: 0.5;
+}
+.carrousel-item .info-card {
+  font-family: "Poppins", sans-serif;
+  padding-left: 12px;
+}
+/* .carrousel-item .info-card p {
+  margin-left: 12px;
+} */
+
+#item-1:checked ~ .carrousel-items #card-1,
+#item-2:checked ~ .carrousel-items #card-2,
+#item-3:checked ~ .carrousel-items #card-3 {
+  transform: translateX(0) scale(1);
+  opacity: 1;
+  z-index: 1;
+  border: 1px grey solid;
+}
