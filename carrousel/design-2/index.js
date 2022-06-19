@@ -1,9 +1,9 @@
-const cards = ["card1", "card2", "card3", "card4", "card5"];
+const cards = ["card1", "card2", "card3"];
 const cardsContainer = document.querySelector(".carrousel-items");
 let actualCard = 0;
 
 const templateCard = (label, id) => {
-  return `<div class="carrousel-item"  id="card-${id}">
+  return `<div class="carrousel-item">
   <img src="./pexels-pixabay-459653.jpg" />
   <div class="info-card">
   <h3>${label}</h3>
@@ -25,11 +25,8 @@ const cardsHTML = [...document.querySelectorAll(".carrousel-item")];
 console.log(cardsHTML, cardsHTML.length);
 
 // cargamos el estado inicial del carrousel
-if (cardsHTML.length > 1) {
-  cardsHTML[0].classList.add("center");
-  cardsHTML[1]?.classList.add("rigth");
-  // cardsHTML[2]?.classList.add("rigth");
-}
+cardsHTML[0]?.classList.add("center");
+cardsHTML[1]?.classList.add("rigth");
 
 cardsContainer.addEventListener("click", (e) => {
   const cardId = e.target.dataset.card * 1;
