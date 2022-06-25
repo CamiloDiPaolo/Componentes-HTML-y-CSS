@@ -3,6 +3,8 @@
 :root {
   --acento: #54bab9;
   --gris: #212121;
+  --disabled: #ffffff59;
+  --active: #ffffffa1;
 }
 
 nav {
@@ -18,59 +20,82 @@ nav {
   font-family: "Poppins", sans-serif;
 }
 
+.nav__logo {
+  color: var(--active);
+}
+
 .nav__links {
   display: flex;
   flex-grow: 0.5;
   height: 100%;
   position: relative;
+  justify-content: flex-end;
 }
 .nav__link {
   width: 100px;
   height: 100%;
   margin: 0;
   text-decoration: none;
-  color: white;
+  color: var(--disabled);
 
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.nav__link:visited {
+.nav__link:hover {
   text-decoration: none;
-  color: white;
+  color: var(--acento);
+}
+.nav__link-active {
+  color: var(--acento);
 }
 
 .dot {
   width: 5px;
   height: 5px;
-  background-color: green;
+  background-color: var(--acento);
+  border-radius: 999px;
   position: absolute;
   bottom: 10px;
-  left: 50px;
-  transform: translateX(-50%);
+  right: 50px;
+  transform: translateX(50%);
   opacity: 0;
   transition: 0.2s;
 }
 
 .nav__links .nav__link:nth-child(1):hover ~ .dot {
-  left: 50px;
-  transform: translateX(-50%);
+  right: 350px;
+  transform: translateX(50%);
   opacity: 1;
 }
 .nav__links .nav__link:nth-child(2):hover ~ .dot {
-  left: 150px;
-  transform: translateX(-50%);
+  right: 250px;
+  transform: translateX(50%);
   opacity: 1;
 }
 .nav__links .nav__link:nth-child(3):hover ~ .dot {
-  left: 250px;
-  transform: translateX(-50%);
+  right: 150px;
+  transform: translateX(50%);
   opacity: 1;
 }
 .nav__links .nav__link:nth-child(4):hover ~ .dot {
-  left: 350px;
-  transform: translateX(-50%);
+  right: 50px;
+  transform: translateX(50%);
   opacity: 1;
+}
+
+.nav__drop {
+  transform: rotate(-90deg);
+  font-size: 24px;
+  color: var(--active);
+}
+.nav__drop:hover {
+  cursor: pointer;
+  color: var(--acento);
+}
+
+.drop-down {
+  transform: translateY(0) !important;
 }
 
 @media screen and (min-width: 700px) {
@@ -85,8 +110,29 @@ nav {
 @media screen and (max-width: 700px) {
   .nav__drop {
     display: block;
+    margin-right: 50px;
   }
   .nav__links {
+    display: flex;
+    padding-bottom: 60px;
+    transform: translateY(-100%);
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    align-items: center;
+    top: 60px;
+    width: 100%;
+    height: auto;
+    background-color: var(--gris);
+  }
+  .dot {
     display: none;
+  }
+  .nav__logo {
+    display: none;
+  }
+  nav {
+    display: flex;
+    justify-content: flex-end;
   }
 }
